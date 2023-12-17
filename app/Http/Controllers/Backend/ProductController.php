@@ -37,4 +37,23 @@ class ProductController extends Controller
             DB::table("products")->where("id",$id)->increment("quantity",$request->quantity);
             return back()->with("success","Product updated successfully");
     }
+
+    public function sell($id){
+        $product=DB::table("products")->where("id",$id)->first();
+        return view('pages.products.sell',compact("product"));
+    }
+
+    public function sold(Request $request,$id){
+       
+        $sold=DB::table("products")->where("id",$id)->decrement("quantity",$request->quantity);
+        $total_price=$request->price*$request->quantity;
+        if($sold){
+            DB::table("orders")->insert([
+               "product_id"=>$id,
+               "total_quantity"=>$request->quantity,
+               "total_price"=> $total_price,
+            ]);
+            return back()->with("success","Product sold successfully");
+        }
+    }
 }

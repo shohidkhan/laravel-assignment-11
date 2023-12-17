@@ -8,7 +8,6 @@
                 <div class="card">
                     <h4 class="card-header d-flex justify-content-between">
                         <span>Products</span>
-                        <a href="{{ route("admin.products.create") }}" class="btn btn-primary">Add Product</a>
                     </h4>
                     <div class="card-body">
                         <table class="table">
@@ -16,21 +15,20 @@
                                 <tr>
                                     <th>#ID</th>
                                     <th>Product name</th>
-                                    <th>Product Price</th>
+                                    <th>Product Total Price</th>
                                     <th>Quantity</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($products as $product)
+                                @foreach ($orders as $order)
                                 <tr>
-                                    <td>{{ $product->id }}</td>
-                                    <td>{{ $product->name }}</td>
-                                    <td>{{ $product->price }}</td>
-                                    <td>{{ $product->quantity }}</td>
+                                    <td>{{ $order->id }}</td>
+                                    <td>{{ $order->name }}</td>
+                                    <td>{{ $order->total_price }}</td>
+                                    <td>{{ $order->total_quantity }}</td>
                                     <td>
-                                        <a href="{{ route("admin.products.sell", $product->id) }}" class="btn btn-success btn-sm">Sell</a>
-                                        <a href="{{ route("admin.products.edit", $product->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                        <a href="" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
                                 @endforeach

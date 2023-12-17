@@ -86,6 +86,31 @@
               </ul>
             </div>
           </li>
+          <li class="nav-item">
+            <a
+              class="nav-link menu-link"
+              href="#order"
+              data-bs-toggle="collapse"
+              role="button"
+              aria-expanded="false"
+              aria-controls="order"
+            >
+              <i data-feather="grid" class="icon-dual"></i>
+              <span data-key="t-apps">Order</span>
+            </a>
+            <div class="collapse menu-dropdown" id="order">
+              <ul class="nav nav-sm flex-column">
+                <li class="nav-item">
+                  <a
+                    href="{{ route("admin.orders") }}"
+                    class="nav-link"
+                  >
+                    Orders
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
         </ul>
       </div>
       <!-- Sidebar -->
